@@ -1,0 +1,46 @@
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Virtual environment
+.env/
+venv/
+env/
+
+# Database files
+db.sqlite3
+
+# Log files
+*.log
+
+# Sensitive information (e.g., local settings, environment variables)
+local_settings.py
+.env
+
+# Media and static files (if not managed by a separate service like S3)
+media/
+static_collected/ # Or whatever your COLLECTSTATIC_DIRS is
+
+# IDE-specific files (e.g., PyCharm)
+.idea/
+.vscode/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Test coverage files
+.coverage
+
+# Tox (testing framework) files
+.tox/
+
+# Eggs (Python package format)
+.eggs/
+
+# Distribution builds
+dist/
+build/
+
+# Other temporary files
+*.pot
