@@ -92,8 +92,8 @@ DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         'NAME': 'booking',
-        'USER':'newuser',
-        'PASSWORD': 'randompass',
+        'USER':'postgres',
+        'PASSWORD': 'mypassword',
         'HOST':'35.247.133.29',
         'PORT':'5432'
 
