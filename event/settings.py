@@ -76,13 +76,25 @@ WSGI_APPLICATION = 'event.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default':{
+#         'ENGINE':'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'newdb',
+#         'USER':'postgres',
+#         'PASSWORD': '12345',
+#         'HOST':'localhost',
+#         'PORT':'5432'
+
+#     }
+# }
+
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'newdb',
-        'USER':'postgres',
-        'PASSWORD': '12345',
-        'HOST':'localhost',
+        'NAME': 'booking',
+        'USER':'newuser',
+        'PASSWORD': 'randompass',
+        'HOST':'35.247.133.29',
         'PORT':'5432'
 
     }
