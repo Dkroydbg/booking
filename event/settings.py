@@ -91,12 +91,11 @@ WSGI_APPLICATION = 'event.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'booking',
+        'NAME': 'newdb',
         'USER':'postgres',
         'PASSWORD': 'mypassword',
-        'HOST':'35.247.133.29',
+        'HOST':'localhost',
         'PORT':'5432'
-
     }
 }
 
