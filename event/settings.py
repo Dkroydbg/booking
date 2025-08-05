@@ -123,8 +123,8 @@ DATABASES = {
 # [Service]
 # User=root
 # Group=groupname
-# WorkingDirectory=/home/ubuntu/booking/event
-# ExecStart=/home/ubuntu/booking/event/venv/bin/gunicorn \
+# WorkingDirectory=/home/ubuntu/booking
+# ExecStart=/home/ubuntu/booking/venv/bin/gunicorn \
 #           --access-logfile - \
 #           --workers 3 \
 #           --bind unix:/run/respirer.in.gunicorn.sock \
@@ -147,15 +147,15 @@ DATABASES = {
 #         proxy_set_header X-Real-IP $remote_addr;
 #         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 #         proxy_set_header X-Forwarded-Proto $scheme;
-#         proxy_pass http://unix:/run/respirer.in.gunicorn.sock;
+#         http://unix:/run/first-api.respirer.in.gunicorn.sock;
 #     }
 
-#     location  /static/ {
-#         root /var/www/event;
+#     location /static/ {
+#     alias /var/www/event/static/;
 #     }
 
-#     location  /media/ {
-#         root /var/www/event;
+#     location /media/ {
+#         alias /var/www/event/media/;
 #     }
 # }
 
@@ -196,7 +196,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/var/www/booking/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
