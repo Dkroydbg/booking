@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8p$uc&*%(4h(44j$hlt2a#cke%37r68--r^xk70v+3j+58gts%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.247.133.29']
+ALLOWED_HOSTS = ['35.247.133.29','first-api.respirer.in','www.first-api.respirer.in']
 
 
 # Application definition
@@ -98,6 +98,68 @@ DATABASES = {
         'PORT':'5432'
     }
 }
+
+# sudo nano /etc/systemd/system/respirer.in.gunicorn.socket
+# sudo nano /etc/systemd/system/respirer.in.gunicorn.service
+
+
+
+# Example:- 
+# [Unit]
+# Description=respirer.in.gunicorn socket
+
+# [Socket]
+# ListenStream=/run/respirer.in.gunicorn.sock
+
+# [Install]
+# WantedBy=sockets.target
+
+
+# [Unit]
+# Description=respirer.in.gunicorn daemon
+# Requires=respirer.in.gunicorn.socket
+# After=network.target
+
+# [Service]
+# User=root
+# Group=groupname
+# WorkingDirectory=/home/ubuntu/booking/event
+# ExecStart=/home/ubuntu/booking/event/venv/bin/gunicorn \
+#           --access-logfile - \
+#           --workers 3 \
+#           --bind unix:/run/respirer.in.gunicorn.sock \
+#           event.wsgi:application
+
+# [Install]
+# WantedBy=multi-user.target
+
+
+# server{
+#     listen 80;
+#     listen [::]:80;
+
+#     server_name first-api.respirer.in www.first-api.respirer.in;
+
+#     location = /favicon.ico { access_log off; log_not_found off; }
+
+#     location / {
+#         proxy_set_header Host $http_host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+#         proxy_pass http://unix:/run/respirer.in.gunicorn.sock;
+#     }
+
+#     location  /static/ {
+#         root /var/www/event;
+#     }
+
+#     location  /media/ {
+#         root /var/www/event;
+#     }
+# }
+
+# sudo ln -s /etc/nginx/sites-available/respirer.in /etc/nginx/sites-enabled/respirer.in
 
 
 # Password validation
